@@ -1,0 +1,77 @@
+/*!******************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[7].use[3]!./src/app/styles/notFound.module.css ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************/
+.notFound_notFoundContainer__d5YLx {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 97vh; /* Cover full page */
+  background-color: #fff5e1; /* Light background */
+  text-align: center;
+}
+
+.notFound_heading__6_nbf {
+  font-size: 6rem;
+  color: #343a40;
+  animation: notFound_fadeIn__NLYMa 1s ease-in-out; /* Heading animation */
+}
+
+.notFound_message__148h4 {
+  font-size: 1.5rem;
+  margin: 20px 0;
+  color: #495057;
+}
+
+.notFound_suggestion__doS7u {
+  margin: 20px 0;
+  font-size: 1.2rem;
+  color: #495057;
+}
+
+.notFound_buttons__bgoOP {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.notFound_button__GH_wx {
+  padding: 15px 30px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  font-size: 1.2rem;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add button shadow */
+}
+
+.notFound_button__GH_wx:hover {
+  background-color: #0056b3; /* Hover effect */
+  transform: translateY(-3px); /* Lift button on hover */
+}
+
+.notFound_homeLink__vCOVj {
+  margin-top: 20px;
+  display: inline-block;
+  font-size: 1.1rem;
+  color: #007bff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.notFound_homeLink__vCOVj:hover {
+  color: #0056b3; /* Hover color */
+  text-decoration: underline;
+}
+
+@keyframes notFound_fadeIn__NLYMa {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
