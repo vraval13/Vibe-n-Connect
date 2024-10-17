@@ -1,4 +1,4 @@
-// File: C:\Vyom's NU Stuff\ITNU5thSEM\CN\Assignment\frontend\chatsocket\src\app\page.js
+// File: C:\Vyom's NU Stuff\ITNU5thSEM\CN\Assignment - Copy\frontend\src\app\page.js
 import * as entry from '../../../src/app/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
