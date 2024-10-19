@@ -1,52 +1,48 @@
 import express from "express";
-// const express = require("express");
-// const dotenv = require("dotenv");
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
-
-import authRoutes from "./routes/auth.route.js"
-import messageRoutes from "./routes/message.route.js"
-import userRoutes from "./routes/user.route.js"
+import authRoutes from "./routes/auth.route.js";
+import messageRoutes from "./routes/message.route.js";
+import userRoutes from "./routes/user.route.js";
 import connectToMongoDB from "./db/connectToMongoDB.js";
 import cors from "cors";
+import { app, server } from "./socket/socket.js";
 
-
-import {app,server} from "./socket/socket.js";
-// const app = express();
-const PORT = process.env.PORT || 3001;
-
+import next from "next";
 
 dotenv.config();
 
-app.use(cors({
-  origin: "http://localhost:3000", // Your frontend URL
-  credentials: true, // Allow credentials (cookies, authorization headers, etc.)
-}));
-app.use(express.json());
-app.use(cookieParser());
+const dev = process.env.NODE_ENV !== "production";
+const nextApp = next({ dev });
+const handle = nextApp.getRequestHandler();
 
-app.use("/api/auth",authRoutes);
-app.use("/api/messages",messageRoutes);
-app.use("/api/users",userRoutes);
+const PORT = process.env.PORT || 3001;
 
-app.get("/", (req, res) => {
-  res.send("Welcome to Vibe-n-Connect!");
+// Connect Next.js to Express
+nextApp.prepare().then(() => {
+  // Middleware setup
+  app.use(
+    cors({
+      origin: "http://localhost:3000", // Frontend URL (can be adjusted in production)
+      credentials: true,
+    })
+  );
+  app.use(express.json());
+  app.use(cookieParser());
+
+  // API Routes
+  app.use("/api/auth", authRoutes);
+  app.use("/api/messages", messageRoutes);
+  app.use("/api/users", userRoutes);
+
+  // Use Next.js to handle all other routes
+  app.get("*", (req, res) => {
+    return handle(req, res);
+  });
+
+  // Start the server
+  server.listen(PORT, () => {
+    connectToMongoDB();
+    console.log(`Server started running at ${PORT}`);
+  });
 });
-
-// app.get("/api/auth/signup",(req,res)=>{
-//   console.log('signup route');
-// });
-
-// app.get("/api/auth/login",(req,res)=>{
-//   console.log('login route');
-// });
-
-// app.get("/api/auth/logout",(req,res)=>{
-//   console.log('logout route');
-// });
-
-
-server.listen(PORT,()=>{
-  connectToMongoDB();
-  console.log(`Server started running at ${PORT}`);
-})
