@@ -29,9 +29,9 @@ app.use("/api/auth",authRoutes);
 app.use("/api/messages",messageRoutes);
 app.use("/api/users",userRoutes);
 
-// app.get("/",(req,res)=>{
-//   res.send("Hello!");
-// });
+app.get("/", (req, res) => {
+  res.send("Welcome to Vibe-n-Connect!");
+});
 
 // app.get("/api/auth/signup",(req,res)=>{
 //   console.log('signup route');
