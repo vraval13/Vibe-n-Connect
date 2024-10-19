@@ -59,3 +59,32 @@ In an age where social media often feels superficial, finding genuine connection
    ```sh
    git clone https://github.com/yourusername/Vibe-n-Connect.git
   
+2. Navigate to the frontend directory
+   ```sh
+   cd frontend
+3. Navigate to the backend directory
+   ```sh
+   cd backend
+4. Install dependencies
+   ```sh
+   npm install
+
+## Usage
+
+1. Start the development server
+   ```sh
+   npm run start
+2. Start the frontend server
+   ```sh
+   npm run dev
+3. Open your browser for frontend and navigate to
+   ```sh
+   https://localhost:3000 
+
+4. Open your browser for backend and navigate to
+   ```sh
+   https://localhost:3001
+
+## Contact
+
+Vyom Raval - ravalvyom17@gmail.com 
